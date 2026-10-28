@@ -39,12 +39,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 
   <!-- Right: Profile Photo -->
-  <div class="hero-image">
-    <img src="/images/profile.jpg" alt="Hadam Yang">
-  </div>
+    <div class="hero-image profile-circle">
+      <img src="/images/memoji.png" alt="Hadam Memoji">
+    </div>
 
-</section>
-
+    </section>
 
     <section id="about" class="content-section">
       <h2>About Me</h2>

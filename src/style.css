@@ -1,6 +1,6 @@
 
 /* ========================================
-1. Global Styles
+   1. Global Styles
 ======================================== */
 
 :root {
@@ -20,43 +20,80 @@ body {
 
 
 /* ========================================
-2. Navigation Bar
+   2. Navigation Bar
 ======================================== */
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 8%;
+
+  padding: 20px 5%;
   background: #1c371d;
 }
 
+/* HY Circle Logo */
+
 .logo {
-  font-size: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 65px;
+  height: 65px;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  font-size: 24px;
   font-weight: bold;
   color: white;
   text-decoration: none;
 }
 
+/* Navigation Links */
+
 nav {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 35px;
 }
 
 nav a {
-  color: #cbd5e1;
+  font-size: 16px;
+  color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #88ceac;
 }
 
 
 /* ========================================
-3. Hero Section
+   3. Hero Section
 ======================================== */
 
 .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+  /* top | left-right | bottom (0 = Memoji sits on the bottom edge) */
+  padding: 40px 8% 0;
+
   background: #284f2a;
   color: white;
-  padding: 110px 8%;
+}
+
+/* Left Side - Introduction */
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 600px;
 }
 
 .eyebrow {
@@ -66,19 +103,20 @@ nav a {
 }
 
 .hero h1 {
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(36px, 5vw, 60px);
   margin: 20px 0;
 }
 
-.intro {
-  max-width: 520px;
+.hero .intro {
+  font-size: 18px;
   line-height: 1.8;
+  max-width: 520px;
   color: #cbd5e1;
 }
 
 
 /* ========================================
-4. Buttons
+   4. Hero Buttons
 ======================================== */
 
 .buttons {
@@ -88,40 +126,127 @@ nav a {
 }
 
 .buttons a {
+  display: inline-block;
   padding: 13px 20px;
+
   border-radius: 8px;
   text-decoration: none;
   color: white;
+
+  transition: all 0.3s ease;
 }
 
 .primary-btn {
   background: #62a370;
 }
 
+.primary-btn:hover {
+  background: #77b885;
+}
+
 .secondary-btn {
   border: 1px solid #688b64;
 }
 
+.secondary-btn:hover {
+  background: #3b6240;
+}
+
 
 /* ========================================
-5. Content Sections
+   5. Profile Memoji Circle
+======================================== */
+
+/* Right Side - Circle */
+
+.hero-image.profile-circle {
+  width: 310px;
+  height: 310px;
+  min-width: 310px;
+
+  flex: 0 0 310px;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 3px solid #88ceac;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Image Inside Circle */
+
+.hero-image.profile-circle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: none;
+  border-radius: 0;
+}
+
+
+/* ========================================
+   6. Content Sections
 ======================================== */
 
 .content-section {
   width: 100%;
   max-width: 1400px;
+
   margin: 0 auto;
   padding: 70px 5%;
 }
 
+.content-section h2 {
+  font-size: 36px;
+  color: #284f2a;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
 .content-section p {
+  font-size: 18px;
   line-height: 1.8;
   color: #688b64;
 }
 
 
 /* ========================================
-6. Skills Section
+   7. About Me Section
+======================================== */
+
+#about h2 {
+  font-size: 36px;
+  color: #284f2a;
+  margin-bottom: 30px;
+}
+
+#about p {
+  font-size: 20px;
+  line-height: 2;
+  color: #688b64;
+}
+
+
+/* ========================================
+   8. Section Dividers
+======================================== */
+
+/* Dashed Line Between Sections */
+
+.content-section + .content-section {
+  border-top: 2px dashed #c5d5c5;
+}
+
+
+/* ========================================
+   9. Skills Section
 ======================================== */
 
 .skills {
@@ -133,13 +258,14 @@ nav a {
 .skills span {
   background: #eef2ff;
   color: #092212;
+
   padding: 12px 18px;
   border-radius: 8px;
 }
 
 
 /* ========================================
-7. Project Cards
+   10. Project Section
 ======================================== */
 
 .project-card {
@@ -148,20 +274,22 @@ nav a {
   border-radius: 12px;
 }
 
-/* Image + Description Layout */
+/* Project Image + Description */
 
 .project-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 50px;
 
+  gap: 50px;
   width: 100%;
+
   padding: 35px;
   margin-bottom: 50px;
 
   border: 1px solid #e5e7eb;
   border-radius: 16px;
+
   background: #ffffff;
 }
 
@@ -172,12 +300,13 @@ nav a {
   min-width: 0;
 }
 
-/* Project Images */
+/* Project Image */
 
 .project-row img {
   display: block;
   width: 100%;
   height: 320px;
+
   object-fit: contain;
   border-radius: 12px;
 }
@@ -192,6 +321,7 @@ nav a {
 .project-info h3 {
   font-size: 30px;
   color: #284f2a;
+
   margin-top: 0;
   margin-bottom: 24px;
 }
@@ -202,8 +332,7 @@ nav a {
   color: #688b64;
 }
 
-/* Reverse Layout:
-   Image on the right, text on the left */
+/* Reverse Layout */
 
 .project-row.reverse {
   flex-direction: row-reverse;
@@ -211,7 +340,7 @@ nav a {
 
 
 /* ========================================
-   8. Footer
+   11. Footer
 ======================================== */
 
 footer {
@@ -222,29 +351,61 @@ footer {
 
 
 /* ========================================
-   9. Responsive Design
+   12. Tablet Responsive
 ======================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
   .navbar {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
   nav {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 18px;
   }
 
   .hero {
-    padding: 75px 8%;
+    flex-direction: column;
+    text-align: center;
+
+    padding: 70px 6%;
+    gap: 40px;
   }
 
-  .content-section {
-    padding: 45px 6%;
+  .hero-content {
+    max-width: 100%;
   }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  /* Memoji Circle */
+
+  .hero-image.profile-circle {
+    width: 220px;
+    height: 220px;
+    min-width: 220px;
+
+    flex: 0 0 220px;
+  }
+
+  /* About Me */
+
+  #about h2 {
+    font-size: 30px;
+  }
+
+  #about p {
+    font-size: 18px;
+  }
+
+  /* Projects */
 
   .project-row,
   .project-row.reverse {
@@ -266,187 +427,109 @@ footer {
   }
 
   .project-info h3 {
-    font-size: 30px;
+    font-size: 28px;
   }
-
-}
-
-
-/* Section Divider */
-
-.content-section + .content-section {
-  border-top: 2px dashed #c5d5c5;
 }
 
 
 /* ========================================
-   1. HY Logo - Circle
+   13. Mobile Responsive
 ======================================== */
 
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 65px;
-  height: 65px;
-
-  border: 2px solid white;
-  border-radius: 50%;
-
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-
-/* ========================================
-   2. Navigation Menu
-======================================== */
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 5%;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-nav a {
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-}
-
-
-/* ========================================
-   3. Hero Layout
-======================================== */
-
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 60px;
-  padding: 100px 8%;
-  min-height: 500px;
-
-  background: #284f2a;
-}
-
-.hero-content {
-  flex: 1;
-  max-width: 600px;
-}
-
-.hero h1 {
-  font-size: 60px;
-  margin: 20px 0;
-}
-
-.hero .intro {
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 520px;
-}
-
-
-/* ========================================
-   4. Profile Image
-======================================== */
-
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image img {
-  width: 300px;
-  height: 300px;
-
-  object-fit: cover;
-  border-radius: 50%;
-
-  border: 3px solid #88ceac;
-}
-
-
-/* ========================================
-   5. About Me Heading
-======================================== */
-
-#about h2 {
-  font-size: 36px;
-  color: #284f2a;
-  margin-bottom: 30px;
-}
-
-
-/* ========================================
-   6. About Me Text
-======================================== */
-
-#about p {
-  font-size: 20px;
-  line-height: 2;
-  color: #688b64;
-}
-
-
-/* ========================================
-   7. Mobile Responsive
-======================================== */
-
-@media (max-width: 768px) {
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 70px 6%;
-    gap: 40px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  .hero-image img {
-    width: 220px;
-    height: 220px;
-  }
-
-  .buttons {
-    justify-content: center;
-  }
+@media (max-width: 600px) {
 
   .navbar {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
   }
 
   nav {
-    gap: 18px;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  #about h2 {
+  .hero {
+    padding: 75px 8%;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .content-section {
+    padding: 45px 6%;
+  }
+
+  .content-section h2 {
     font-size: 30px;
   }
 
-  #about p {
-    font-size: 18px;
+  .project-row {
+    margin-bottom: 30px;
+  }
+
+  .project-info h3 {
+    font-size: 26px;
+  }
+
+  .project-info p {
+    font-size: 16px;
   }
 }
 
+
+
+
+/* ========================================
+   Profile Memoji
+======================================== */
+
+.hero-image.profile-circle {
+  width: 470px;
+  height: 470px;
+  min-width: 470px;
+
+  flex: 0 0 470px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove circle border */
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+
+  /* Stick Memoji to the bottom of the hero */
+  align-self: flex-end;
+
+  /* Move Memoji left */
+  transform: translateX(-80px);
+}
+
+/* Memoji Image */
+.hero-image.profile-circle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  border: none;
+  border-radius: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-image.profile-circle {
+    width: 220px;
+    height: 220px;
+    min-width: 220px;
+    flex: 0 0 220px;
+
+    align-self: center;
+    transform: none;
+  }
+}
