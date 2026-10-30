@@ -154,7 +154,7 @@ nav a:hover {
 
 
 /* ========================================
- 5. Profile Memoji Circle
+5. Profile Memoji Circle
 ======================================== */
 
 /* Right Side - Circle */
@@ -346,7 +346,7 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 30px;
-  color: #64748b;
+  color: #658b64;
 }
 
 
@@ -531,5 +531,260 @@ Profile Memoji
 
     align-self: center;
     transform: none;
+  }
+}
+
+/* ========================================
+About Me Cards
+======================================== */
+
+.section-label {
+  margin: 0 0 8px;
+  font-size: 14px !important;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8fb08a !important;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.about-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 24px;
+  background: #f3f8f2;
+  border: 2px solid #284f2a;
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 #284f2a;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translate(-3px, -3px) rotate(-1deg);
+  box-shadow: 9px 9px 0 #284f2a;
+}
+
+.about-card-wide {
+  grid-column: span 2;
+}
+
+.about-card-accent {
+  background: #1c371d;
+}
+
+.about-card-accent .about-label,
+.about-card-accent .about-value {
+  color: #ffffff;
+}
+
+.about-icon {
+  font-size: 28px;
+}
+
+.about-label {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #688b64;
+}
+
+.about-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #284f2a;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+a.about-value:hover {
+  text-decoration: underline;
+}
+
+
+/* ========================================
+TMI Now Playing Card
+======================================== */
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  max-width: 720px;
+  padding: 24px;
+  background: linear-gradient(135deg, #0f1a10, #1c371d);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(28, 55, 29, 0.35);
+}
+
+.now-playing img {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.now-playing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.now-playing-tag {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a8d5a0;
+}
+
+.now-playing-artist {
+  font-size: 34px;
+  color: #ffffff;
+}
+
+.now-playing-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.now-playing-bar span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: #a8d5a0;
+  animation: playing 6s linear infinite;
+}
+
+@keyframes playing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.now-playing-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #1c371d;
+  font-weight: bold;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.now-playing-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .now-playing {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .now-playing img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card-wide {
+    grid-column: span 1;
+  }
+}
+
+/* ========================================
+Project Accordion
+======================================== */
+
+.project-accordion {
+  border-bottom: 2px solid #284f2a;
+}
+
+.project-accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 28px 8px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #284f2a;
+
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Hide default triangle marker */
+.project-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron */
+.project-accordion summary::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+
+  border-right: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.project-accordion summary:hover {
+  color: #688b64;
+  padding-left: 16px;
+}
+
+.project-accordion[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.project-accordion[open] .project-card {
+  animation: accordion-open 0.35s ease;
+}
+
+@keyframes accordion-open {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-accordion summary {
+    font-size: 24px;
+    padding: 22px 4px;
   }
 }
