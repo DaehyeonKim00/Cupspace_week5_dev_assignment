@@ -100,7 +100,35 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
     </section>
 
-<section id="projects" class="content-section">
+<section id="skills" class="content-section">
+      <h2>Software Competency</h2>
+
+      <details class="project-accordion">
+        <summary>Programming Languages</summary>
+        <div class="skills">
+          <span>Python</span>
+          <span>TypeScript</span>
+        </div>
+      </details>
+
+      <details class="project-accordion">
+        <summary>Web Development</summary>
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+        </div>
+      </details>
+
+      <details class="project-accordion">
+        <summary>Tools</summary>
+        <div class="skills">
+          <span>Git</span>
+          <span>Vite</span>
+        </div>
+      </details>
+    </section>
+
+    <section id="projects" class="content-section">
   <h2>My Projects</h2>
 
   <!-- Project 1: Image Left, Text Right -->
@@ -119,8 +147,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         and provides answers, have emotions?"
         Based on this question, I created a machine
         learning program to detect emotions.
-        I used Scratch and MLU
-        (Machine Learning made by Amazon) to build it.
+        I used <b>Scratch</b> and <b>MLU
+        (Machine Learning made by Amazon)</b> to build it.
       </p>
 
       <p>
@@ -146,8 +174,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <div class="project-info">
       <p>
-        I created an AI to help with recycling using
-        Teachable Machine and tested it in practice.
+        I created an AI to <b>help with recycling using
+        Teachable Machine</b> and tested it in practice.
         I thought that in today's world, where
         environmental pollution is getting worse,
         recycling is a good way to help solve
@@ -165,18 +193,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </details>
 
 </section>
-
-    <section id="skills" class="content-section">
-      <h2>Software Competency</h2>
-      <div class="skills">
-        <span>Python</span>
-        <span>TypeScript</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>Git</span>
-        <span>Vite</span>
-      </div>
-    </section>
   </main>
 
   <footer>© 2026 Hadam. All rights reserved.</footer>

@@ -256,11 +256,23 @@ nav a:hover {
 }
 
 .skills span {
-  background: #eef2ff;
-  color: #092212;
+  background: #f3f8f2;
+  color: #284f2a;
+  font-weight: bold;
 
-  padding: 12px 18px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border: 2px solid #284f2a;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #284f2a;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.skills span:hover {
+  background: #1c371d;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #a8d5a0;
 }
 
 
@@ -346,7 +358,8 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 30px;
-  color: #658b64;
+  background: #1c371d;
+  color: #ffffff;
 }
 
 
@@ -787,4 +800,110 @@ Project Accordion
     font-size: 24px;
     padding: 22px 4px;
   }
+}
+
+/* Skills inside accordion */
+.project-accordion .skills {
+  padding: 0 8px 28px;
+}
+
+.project-accordion[open] .skills {
+  animation: accordion-open 0.35s ease;
+}
+
+/* Replace browser's blue focus box with a green one (keyboard only) */
+.project-accordion summary:focus {
+  outline: none;
+}
+
+.project-accordion summary:focus-visible {
+  outline: none;
+  background: #f3f8f2;
+  border-radius: 8px;
+}
+
+/* ========================================
+Project Card Style
+======================================== */
+
+.project-accordion .project-row {
+  margin: 8px 0 36px;
+  padding: 40px;
+
+  background: #f3f8f2;
+  border: 1px solid #284f2a;
+  border-radius: 24px;
+  box-shadow: 4px 4px 0 #284f2a;
+}
+
+/* Image in a thin dashed frame, slightly tilted */
+.project-accordion .project-image {
+  padding: 10px;
+  background: #ffffff;
+  border: 1px dashed #284f2a;
+  border-radius: 18px;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.project-accordion .project-row.reverse .project-image {
+  transform: rotate(1.5deg);
+}
+
+.project-accordion .project-row:hover .project-image {
+  transform: rotate(0) scale(1.02);
+}
+
+.project-accordion .project-row img {
+  background: #ffffff;
+}
+
+/* Description with a quote-like left line */
+.project-accordion .project-info {
+  padding-left: 24px;
+  border-left: 4px solid #a8d5a0;
+}
+
+.project-accordion .project-info b {
+  color: #284f2a;
+}
+
+@media (max-width: 768px) {
+  .project-accordion .project-row {
+    padding: 20px;
+    box-shadow: 3px 3px 0 #284f2a;
+  }
+
+  .project-accordion .project-image,
+  .project-accordion .project-row.reverse .project-image {
+    transform: none;
+  }
+}
+
+/* ========================================
+Hero Style (matches card mood)
+======================================== */
+
+/* Subtle dot pattern background */
+.hero {
+  background-color: #284f2a;
+  background-image: radial-gradient(rgba(168, 213, 160, 0.18) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Intro with quote-like left line */
+.hero .intro {
+  padding-left: 18px;
+  border-left: 4px solid #a8d5a0;
+  color: #e3efe1;
+}
+
+/* Nav links: underline on hover */
+nav a {
+  border-bottom: 1px dashed transparent;
+  transition: color 0.3s ease, border-color 0.2s ease;
+}
+
+nav a:hover {
+  border-bottom-color: #a8d5a0;
 }
